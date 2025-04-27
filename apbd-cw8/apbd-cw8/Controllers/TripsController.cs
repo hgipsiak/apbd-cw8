@@ -19,6 +19,7 @@ namespace apbd_cw8.Controllers
         public async Task<IActionResult> GetTrips()
         {
             var trips = await _tripsService.GetTrips();
+            if (trips.Count == 0) return NotFound("There are no trips");
             return Ok(trips);
         }
     }
