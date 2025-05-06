@@ -29,7 +29,7 @@ namespace apbd_cw8.Controllers
         public async Task<IActionResult> AddClient(ClientDTO client)
         {
             var newClient = await _clientsService.AddClient(client);
-            return Ok(newClient);
+            return Created("{id}", client.Id);
         }
 
         [HttpPut("{id}/trips/{tripId}")]
